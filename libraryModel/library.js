@@ -1,13 +1,12 @@
-var Library = {
-  genres: ["horror", "mystery", "romance", "fantasy", "nonfiction"],
-  numberOfShelves: 0,
-  addShelf: function(genresIndex) {
-    var propertyName = genres[genresIndex] + "Shelf";
-    var newShelf = new Shelf();
+var Shelf = require("./shelf");
+var Book = require("./book");
 
-    return Library.propertyName = newShelf;
-  },
-  removeShelf: function(property) {
-    delete this["property"];
-  }
-};
+function Library(name) {
+  this.name = name;
+  this.addShelf = function(genre) {
+    this[genre] = new Shelf(genre);
+  };
+  this.removeShelf = function(genre) {
+    delete this[genre];
+  };
+}
